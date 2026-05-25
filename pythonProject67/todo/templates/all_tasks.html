@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>все заадчи</title>
+</head>
+<body>
+{% if tasks_db %}
+    {% for task in tasks_db %}
+        <p><a href="{{ url_for('tasks.task_detail', id=task.id) }}">{{ task.title }}</a></p>
+        <h3>{{ task.description }}</h3>
+    {% endfor %}
+{% else %}
+    <h3>NO LIST</h3>
+{% endif %}
+</body>
+</html>

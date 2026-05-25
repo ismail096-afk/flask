@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+</head>
+<body>
+<form action="{{ url_for('auth.register') }}" method="POST"></form>
+    <div>
+    {{ form.username.label }} {{ form.username }}
+        {% for error in form.username.errors %}
+            <div class="error">{{ error }}</div>
+        {% enfor %}
+    </div>
+
+    <div>
+    {{ form.email.label }} {{ form.email }}
+        {% for error in form.email.errors %}
+            <div class="error">{{ error }}</div>
+        {% enfor %}
+    </div>
+
+    <div>
+    {{ form.password.label }} {{ form.password }}
+        {% for error in form.password.errors %}
+            <div class="error">{{ error }}</div>
+        {% enfor %}
+    </div>
+
+    <div>
+    {{ form.confirm_password.label }} {{ form.confirm_password }}
+        {% for error in form.confirm_password.errors %}
+            <div class="error">{{ error }}</div>
+        {% enfor %}
+    </div>
+
+    <div>
+    {{ form.submit }}
+    </div>
+</body>
+</html>

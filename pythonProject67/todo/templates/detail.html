@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Задача № {{ tasks_one }}</title>
+</head>
+<body>
+{% if tasks_one %}
+    <h2>{{ tasks_one.0.title }}</h2>
+    <p>Описания: <i>{{ tasks_one.0.description }}</i></p>
+    <form action="{{ url_for('tasks.delete_task', id=task_one.0.id) }}" method="POST">
+        <button>Удалить задачу</button>
+    </form>
+
+    <form action="{{ url_for('tasks.update_task', id=task_one.0.id) }}" method="POST">
+        <button>Удалить задачу</button>
+    </form>
+
+{% else %}
+    <h3>not found 404</h3>
+{% endif %}
+</body>
+</html>

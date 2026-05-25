@@ -11,5 +11,16 @@ def profile():
     return None
 
 @profile_bp.route('/change-username', methods=["GET", "POST"])
-def change_username():
-    return render_template('change_username.html')
+def change_email():
+    if request.method == 'POST':
+        new_email = request.form.get('new_email')
+        try:
+            if new_email and len(new_email) >= 3:
+                current_user.email = new_email
+                db.session.commit()
+                return redirect(url_for('profile.profile'))
+        except Exception:
+            return redirect(profile.change_email)
+
+    return render_template('change_email.html')
+

@@ -7,7 +7,11 @@ from pythonProject67.auth.forms.login import LoginForm
 from pythonProject67.database.engine import db
 from pythonProject67.database.models.auth import User
 
-auth_bp = Blueprint('auth', __name__, template_folder='templates')
+auth_bp = Blueprint(
+    'auth',
+    __name__,
+    template_folder='templates',
+    static_folder='static')
 
 
 
@@ -38,3 +42,4 @@ def login():
 def logout():
     logout_user()
     return  redirect(url_for(('auth.login')))
+
